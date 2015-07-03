@@ -20,9 +20,11 @@ public class MAS
 	private GLFWErrorCallback errorCallback;
 	private GLFWKeyCallback keyCallback;
 	private long window;
+	private MAS instance;
 
 	public static void main(String[] args) {
-		(new MAS()).run();
+		instance = new MAS();
+		instance.run();
 	}
 
 	private void run() {
@@ -83,5 +85,9 @@ public class MAS
 			GLFW.glfwSwapBuffers(this.window);
 			GLFW.glfwPollEvents();
 		}
+	}
+	
+	public MAS getInstance(){
+		return instance;
 	}
 }
